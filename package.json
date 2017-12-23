@@ -1,0 +1,28 @@
+{
+  "name": "thanhchungbtcblog",
+  "version": "1.0.0",
+  "description": "My Blog",
+  "main": "index.js",
+  "dependencies": {
+    "react-helmet": "^5.2.0"
+  },
+  "devDependencies": {
+    "@phenomic/cli": "^1.0.0-alpha.18",
+    "@phenomic/core": "^1.0.0-alpha.18",
+    "@phenomic/preset-react-app": "^1.0.0-alpha.18",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router": "^3.2.0"
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/phenomic start",
+    "build": "./node_modules/.bin/phenomic build"
+  },
+  "author": "",
+  "license": "ISC",
+  "phenomic": {
+    "presets": [
+      "@phenomic/preset-react-app"
+    ]
+  }
+}
