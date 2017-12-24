@@ -4,15 +4,21 @@
   "description": "My Blog",
   "main": "index.js",
   "dependencies": {
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-icons": "^2.2.7",
+    "react-topbar-progress-indicator": "^2.0.0"
   },
   "devDependencies": {
     "@phenomic/cli": "^1.0.0-alpha.18",
     "@phenomic/core": "^1.0.0-alpha.18",
     "@phenomic/preset-react-app": "^1.0.0-alpha.18",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "node-sass": "^4.7.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-router": "^3.2.0"
+    "react-router": "^3.2.0",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.10.0"
   },
   "scripts": {
     "start": "./node_modules/.bin/phenomic start",

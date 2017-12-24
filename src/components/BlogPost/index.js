@@ -3,22 +3,21 @@ import PostLayouts, {Layout} from '../../layouts'
 import PageError from '../PageError'
 import {Link} from 'react-router'
 
+import PageLoading from '../PageLoading'
+
+
+
 export default ({isLoading, page, hasError}) => {
 
-  const PostLayout = (page.node && PostLayouts[page.node.layout]) || PostLayouts.default
   if (hasError) {
     return <PageError error={page.error} />
   }
-
   return (
-      <Layout>  
-        {isLoading && "Loading..."}
+      <Layout>
+        {isLoading && <PageLoading />}
         {!isLoading &&
-        page.node && <PostLayout {...page.node}/>
+        page.node && <PostLayouts.default {...page.node}/>
         }
-        <footer>
-          <Link to="/">Go to home</Link>
-        </footer>
       </Layout>
   )
 };
