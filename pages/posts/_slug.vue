@@ -10,20 +10,21 @@
       <b-row class="content">
         <SocialButtons/>
         <b-col md="8">
-          <component :is="singlePostComponent"/>
 
-          <p>
+          <picture>
+            <img :src="thumbnail" onerror="this.src='/images/default-thumbnail.jpg'" alt=""/>
+          </picture>
 
-            <img src="/images/container-ship.jpg" alt=""/>
-          </p>
+          <component class="mt-4" :is="singlePostComponent"/>
 
           <p class="post-meta">Published on
             <time :datetime="formatDate(date)">{{ formatDate(date) }}</time>
           </p>
           <div class="tags">
             <span>Tags:</span>
-            <a href="/tag/aws/" title="aws">aws</a>
+            <a href="#" v-for="(tag, idx) in tags" :key="idx">{{tag}}</a>
           </div>
+
           <Author/>
 
         </b-col>
@@ -41,13 +42,13 @@
     components: {SocialButtons, Author},
     async asyncData({params}) {
       try {
-        let post = await import(`~/content/${params.slug}.md`);
-        console.log(post)
+        let post = await import(`~/content/${params.slug}/index.md`);
         return {
           title: post.attributes.title,
           date: post.attributes.date,
           tags: post.attributes.tags,
-          singlePostComponent: post.vue.component
+          singlePostComponent: post.vue.component,
+          thumbnail: post.attributes.thumbnail || '/images/default-thumbnail.jpg'
         };
       } catch (err) {
         console.debug(err);
@@ -55,9 +56,19 @@
       }
     },
 
+    data() {
+      return {
+        title: "",
+        thumbnail: '',
+        date: '',
+        tags: [],
+        singlePostComponent: null,
+      }
+    },
+
     methods: {
       formatDate(date) {
-        return moment(date, 'YYYY/MM/DD').format('Do MMM YYYY')
+        return moment(date, 'YYYY-MM-DD').format('Do MMM YYYY')
       }
     }
   };

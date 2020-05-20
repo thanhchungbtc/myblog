@@ -10,17 +10,8 @@
 
     <div class="container posts">
       <b-row>
-        <b-col md="6">
-          <ArticleComponent/>
-        </b-col>
-        <b-col md="6">
-          <ArticleComponent/>
-        </b-col>
-        <b-col md="6">
-          <ArticleComponent/>
-        </b-col>
-        <b-col md="6">
-          <ArticleComponent/>
+        <b-col md="6" v-for="(post, idx) in posts" :key="idx">
+          <ArticleComponent :post="post"/>
         </b-col>
       </b-row>
     </div>
@@ -48,6 +39,17 @@
   export default {
     name: "Posts",
     components: {ArticleComponent},
+
+    async asyncData() {
+      const resolve = require.context("~/content/", true, /\.md$/);
+      const imports = resolve.keys().map(key => {
+        const [, name] = key.match(/\/(.+)\.md$/);
+        return resolve(key);
+      });
+      return {
+        posts: imports
+      };
+    },
   }
 </script>
 

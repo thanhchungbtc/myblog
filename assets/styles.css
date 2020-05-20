@@ -619,7 +619,8 @@ a.btn-symbol:hover {
 }
 
 @media (min-width: 576px) {
-  .posts .col-md-6 img {
+
+  .posts .col-md-6 img, .latest-post {
     height: 275px
   }
   .posts .col-md-4 img {
@@ -634,7 +635,7 @@ a.btn-symbol:hover {
 }
 
 @media (min-width: 768px) {
-  .posts .col-md-6 img {
+  .posts .col-md-6 img, .latest-post {
     height: 325px
   }
   .posts .col-md-4 img {

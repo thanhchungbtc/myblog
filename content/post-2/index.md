@@ -1,6 +1,8 @@
 ---
 title: Another post
+description: This is second post
 date: 2020/05/01
+thumbnail: posts/phishing.png
 tags:
   - tag1
   - aws

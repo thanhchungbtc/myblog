@@ -62,7 +62,7 @@ export default async () => ({
 
   generate: {
     routes: await getDynamicPaths({
-      "/posts": "posts/*.md"
+      "/posts": "posts/**/*.md"
     })
   },
 
@@ -80,7 +80,12 @@ export default async () => ({
         include: path.resolve(__dirname, "content"),
         loader: "frontmatter-markdown-loader",
         options: {
-          mode: [Mode.VUE_COMPONENT, Mode.META]
+          mode: [Mode.VUE_COMPONENT, Mode.META],
+          vue: {
+            transformAssetUrls: {
+              // img: false,
+            }
+          }
         }
       });
     }

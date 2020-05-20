@@ -1,5 +1,6 @@
 ---
 title: My first blog post
+description: This is first post
 tags:
   - tag1
 ---
