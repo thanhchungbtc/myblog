@@ -3,7 +3,7 @@
     <b-container>
       <b-row class="mb-5">
         <b-col cols="12">
-          <h1>Demo</h1>
+          <h1 class="page-title">Demo projects</h1>
         </b-col>
       </b-row>
 
@@ -49,10 +49,6 @@
 
 <script>
   export default {
-    name: "Demo",
+
   }
 </script>
-
-<style scoped>
-
-</style>

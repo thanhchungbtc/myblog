@@ -1,7 +1,7 @@
 <template>
   <div>
     <NavBar/>
-    <router-view/>
+    <nuxt/>
     <footer class="footer">
       <div class="container">
         <b-row no-gutters align-h="between">
@@ -18,8 +18,9 @@
 </template>
 
 <script>
-  import NavBar from "@/NavBar";
-
+  import 'font-awesome/css/font-awesome.min.css'
+  import '../assets/styles.css'
+  import NavBar from "../components/NavBar";
   export default {
     components: {NavBar}
   }

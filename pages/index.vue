@@ -1,4 +1,12 @@
 <template>
+  <!--  <div>-->
+  <!--    <h1>My blog posts</h1>-->
+  <!--    <ul>-->
+  <!--      <li v-for="post in posts" :key="post.attributes.title">-->
+  <!--        <nuxt-link :to="getPermalink(post)">{{ post.attributes.title }}</nuxt-link>-->
+  <!--      </li>-->
+  <!--    </ul>-->
+  <!--  </div>-->
   <div class="">
     <div style="background-color: #f5f6f6;">
       <div class="container mt-4">
@@ -23,7 +31,7 @@
     </div>
     <div class="container posts">
       <div class="category-link">
-        <router-link :to="{name: 'Posts'}"><h2 class="mb-4"> Recent posts </h2></router-link>
+        <nuxt-link to="/posts"><h2 class="mb-4"> Recent posts </h2></nuxt-link>
         <b-row>
           <b-col md="6">
             <ArticleComponent/>
@@ -47,28 +55,35 @@
     </div>
   </div>
 </template>
-
 <script>
-  // @ is an alias to /src
+  import ArticleComponent from "../components/ArticleComponent";
 
-  import ArticleComponent from "@/views/ArticleComponent";
-
+  const path = require("path");
   export default {
-    name: 'Home',
-    components: {ArticleComponent}
-  }
+    components: {ArticleComponent},
+    async asyncData() {
+      const resolve = require.context("~/content/", true, /\.md$/);
+      const imports = resolve.keys().map(key => {
+        const [, name] = key.match(/\/(.+)\.md$/);
+        return resolve(key);
+      });
+      return {
+        posts: imports
+      };
+    },
+    data() {
+      return {
+        prefix: 'posts'
+      }
+    },
+    methods: {
+      getPermalink(post) {
+        if (post.attributes.hasOwnProperty('permalink')) {
+          return `${this.prefix}/${post.attributes.permalink}`;
+        } else {
+          return `${this.prefix}/${post.meta.resourcePath.split('\\').pop().split('/').pop().split('.')[0]}`;
+        }
+      }
+    }
+  };
 </script>
-
-<style scoped>
-  .header {
-    color: #f1493b;
-    font-weight: 700;
-    font-size: 26px;
-  }
-
-  .title {
-    color: #000;
-    font-weight: 700;
-    font-size: 25px;
-  }
-</style>
