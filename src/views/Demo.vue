@@ -10,7 +10,29 @@
     </b-container>
     <div class="container posts">
 
-      <b-row class="my-3">
+      <b-row>
+        <b-col cols="4">
+          <picture>
+            <img src="/images/container-ship.jpg" alt=""/>
+          </picture>
+        </b-col>
+        <b-col cols="8">
+          <h3>Shopping cart vue</h3>
+        </b-col>
+      </b-row>
+      <hr>
+      <b-row>
+        <b-col cols="4">
+          <picture>
+            <img src="/images/container-ship.jpg" alt=""/>
+          </picture>
+        </b-col>
+        <b-col cols="8">
+          <h3>Shopping cart vue</h3>
+        </b-col>
+      </b-row>
+      <hr>
+      <b-row>
         <b-col cols="4">
           <picture>
             <img src="/images/container-ship.jpg" alt=""/>
@@ -21,27 +43,6 @@
         </b-col>
       </b-row>
 
-      <b-row class="my-3">
-        <b-col cols="4">
-          <picture>
-            <img src="/images/container-ship.jpg" alt=""/>
-          </picture>
-        </b-col>
-        <b-col cols="8">
-          <h3>Shopping cart vue</h3>
-        </b-col>
-      </b-row>
-
-      <b-row class="my-3">
-        <b-col cols="4">
-          <picture>
-            <img src="/images/container-ship.jpg" alt=""/>
-          </picture>
-        </b-col>
-        <b-col cols="8">
-          <h3>Shopping cart vue</h3>
-        </b-col>
-      </b-row>
     </div>
   </div>
 </template>
