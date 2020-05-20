@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div style="background-color: #f5f6f6;">
-      <div class="container mt-4">
+      <div class="container">
         <LatestPost :post="latestPost"/>
       </div>
     </div>
@@ -19,15 +19,23 @@
 </template>
 <script>
   import ArticleComponent from "../components/ArticleComponent";
-  import LatestPost from "./LatestPost";
+  import LatestPost from "../components/LatestPost";
   import POSTS, {getLatestPost} from "../data";
 
   const path = require("path");
   export default {
     components: {LatestPost, ArticleComponent},
     async asyncData() {
+
+      const resolve = require.context("~/content/", true, /\.md$/);
+      const posts = resolve.keys().map(key => {
+        const [, name] = key.match(/\/(.+)\.md$/);
+        return resolve(key);
+      });
+
       return {
         posts: POSTS,
+        // posts,
         latestPost: getLatestPost(),
       };
     },

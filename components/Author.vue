@@ -6,7 +6,8 @@
     </b-col>
     <b-col cols="12" md="8">
       <h3>Thanh Chung Bui</h3>
-      <p>Software engineer based in Tokyo, Japan</p>
+      <p>I am a software engineer based in Tokyo, Japan, mainly working in the backend side.
+      <p>My preferences are Golang and AWS but also interested in frontend framework like Vue</p>
     </b-col>
   </b-row>
 </template>

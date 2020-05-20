@@ -15,8 +15,11 @@
     "bootstrap-vue": "^2.0.0",
     "font-awesome": "^4.7.0",
     "frontmatter-markdown-loader": "^3.4.3",
+    "lodash": "^4.17.15",
+    "markdown-it-prism": "^2.0.5",
     "moment": "^2.25.3",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "prismjs": "^1.20.0"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0"

@@ -15,7 +15,9 @@
             <img :src="thumbnail" onerror="this.src='/images/default-thumbnail.jpg'" alt=""/>
           </picture>
 
-          <component class="mt-4" :is="singlePostComponent"/>
+<!--          Content-->
+<!--          <component class="mt-4" :is="singlePostComponent"/>-->
+          <div class="mt-4" v-html="html"></div>
 
           <p class="post-meta">Published on
             <time :datetime="formatDate(date)">{{ formatDate(date) }}</time>
@@ -44,10 +46,11 @@
       try {
         let post = await import(`~/content/${params.slug}/index.md`);
         return {
+          html: post.html,
           title: post.attributes.title,
           date: post.attributes.date,
           tags: post.attributes.tags,
-          singlePostComponent: post.vue.component,
+          // singlePostComponent: post.vue.component,
           thumbnail: post.attributes.thumbnail || '/images/default-thumbnail.jpg'
         };
       } catch (err) {

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
 
-  <b-row no-gutters align-v="center" class="mt-3 mb-4">
+  <b-row no-gutters align-v="center" class="mt-4 mb-4">
 
     <nuxt-link to="/" class="brand" href="#">Thanh Chung's blog</nuxt-link>
 

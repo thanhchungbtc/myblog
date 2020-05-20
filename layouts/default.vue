@@ -21,6 +21,8 @@
   import 'font-awesome/css/font-awesome.min.css'
   import '../assets/styles.css'
   import NavBar from "../components/NavBar";
+  // import 'prismjs/themes/prism-coy.css'
+  import 'prismjs/themes/prism.css'
   export default {
     components: {NavBar}
   }

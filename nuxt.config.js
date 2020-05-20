@@ -1,6 +1,19 @@
 const path = require("path");
 var glob = require('glob');
 import Mode from 'frontmatter-markdown-loader/mode'
+const markdownIt = require('markdown-it');
+const markdownItPrism = require('markdown-it-prism');
+import 'prismjs'
+import "prismjs/components/prism-clike"
+import "prismjs/components/prism-php"
+import "prismjs/components/prism-java"
+import "prismjs/components/prism-docker"
+import "prismjs/components/prism-go"
+import "prismjs/components/prism-sql"
+import "prismjs/components/prism-http"
+import "prismjs/components/prism-apacheconf"
+import "prismjs/components/prism-shell-session"
+import "prismjs/components/prism-yaml"
 
 
 /* https://github.com/jake-101/bael-template */
@@ -41,7 +54,9 @@ export default async () => ({
   /*
   ** Global CSS
   */
-  css: [],
+  css: [
+    // { src: '~/node_modules/highlight.js/styles/hopscotch.css', lang: 'css' }
+  ],
   /*
   ** Plugins to load before mounting the App
   */
@@ -66,6 +81,7 @@ export default async () => ({
     })
   },
 
+
   /*
   ** Build configuration
   */
@@ -80,7 +96,8 @@ export default async () => ({
         include: path.resolve(__dirname, "content"),
         loader: "frontmatter-markdown-loader",
         options: {
-          mode: [Mode.VUE_COMPONENT, Mode.META],
+          mode: [Mode.VUE_COMPONENT, Mode.META, Mode.HTML],
+          markdownIt: markdownIt({ html: true }).use(markdownItPrism),
           vue: {
             transformAssetUrls: {
               // img: false,

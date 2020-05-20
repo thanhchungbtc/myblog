@@ -8,7 +8,7 @@
       </nuxt-link>
     </div>
     <h3 class="mt-3">{{ title }}</h3>
-
+    <span class="text-right text-muted caption">{{ date }}</span>
 
 
     <p>{{ description }}</p>
@@ -23,6 +23,8 @@
   </article>
 </template>
 <script>
+  import moment from "moment";
+
   export default {
     name: 'ArticleComponent',
     props: ['post'],
@@ -49,6 +51,10 @@
 
       thumbnail() {
         return this.post.attributes.thumbnail || '/images/default-thumbnail.jpg'
+      },
+
+      date() {
+        return moment(this.post.attributes.date, 'YYYY-MM-DD').format('Do MMM YYYY')
       },
 
       permalink() {

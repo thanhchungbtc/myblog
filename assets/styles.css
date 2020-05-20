@@ -1052,12 +1052,6 @@ a.btn-symbol:hover {
   }
 }
 
-.post h2 {
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 1.45
-}
-
 .post p, ul {
   line-height: 1.63;
   margin-top: 1.1rem
@@ -1146,4 +1140,15 @@ pre {
 
 .announcement > a {
   color: #fff
+}
+
+table {
+  width: 100%;
+}
+table, tr, td, th {
+  border: 1px solid #eaeaea;
+  padding: 10px;
+}
+th {
+  background-color: #f1f8e955;
 }
